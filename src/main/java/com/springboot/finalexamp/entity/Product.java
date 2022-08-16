@@ -13,6 +13,7 @@ import javax.persistence.*;
 @Table(name = "products")
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Product {
 
     @Id

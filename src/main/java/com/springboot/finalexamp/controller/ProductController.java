@@ -2,11 +2,8 @@ package com.springboot.finalexamp.controller;
 
 
 import com.springboot.finalexamp.entity.Product;
-import com.springboot.finalexamp.handler.ResponseHandler;
 import com.springboot.finalexamp.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;

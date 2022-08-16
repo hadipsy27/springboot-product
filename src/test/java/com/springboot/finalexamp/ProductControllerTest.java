@@ -11,6 +11,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.ArrayList;
@@ -49,6 +50,26 @@ public class ProductControllerTest {
                 .andExpect(jsonPath("$", hasSize(3)))
 				.andExpect(jsonPath("$[1].name", is("sampo Bakar")));
 
+	}
+
+	@Test
+	public void createRecord_success() throws Exception{
+		Product product = Product.builder()
+				.name("sampo tumis")
+				.price(321)
+				.build();
+
+		Mockito.when(productService.addProduct(product)).thenReturn(product);
+
+		MockHttpServletRequestBuilder mockHttpServletRequestBuilder = MockMvcRequestBuilders.post("/products")
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON)
+				.content(this.objectMapper.writeValueAsString(product));
+
+		mockMvc.perform(mockHttpServletRequestBuilder)
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$", notNullValue()))
+				.andExpect(jsonPath("$.name", is("sampo tumis")));
 	}
 
 }
