@@ -2,6 +2,7 @@ package com.springboot.finalexamp.entity;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,5 +23,5 @@ public class Product {
     private String name;
 
     @NotNull
-    private Long price;
+    private Integer price;
 }

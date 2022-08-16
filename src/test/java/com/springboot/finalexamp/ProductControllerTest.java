@@ -32,9 +32,9 @@ public class ProductControllerTest {
     @MockBean
     ProductService  productService;
 
-    Product product1 = new Product(1L, "sampo goreng", 123L);
-	Product product2 = new Product(2L, "sampo Bakar", 124L);
-	Product product3 = new Product(3L, "sampo rebus", 125L);
+    Product product1 = new Product(1L, "sampo goreng", 123);
+	Product product2 = new Product(2L, "sampo Bakar", 124);
+	Product product3 = new Product(3L, "sampo rebus", 125);
 
 	@Test
 	public void getAllRecords_success() throws Exception{
@@ -48,5 +48,7 @@ public class ProductControllerTest {
 				.andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(3)))
 				.andExpect(jsonPath("$[1].name", is("sampo Bakar")));
+
 	}
+
 }
