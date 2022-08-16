@@ -53,6 +53,18 @@ public class ProductControllerTest {
 	}
 
 	@Test
+	public void getProductById_success() throws Exception{
+		Mockito.when(productService.getProductById(product1.getId())).thenReturn(java.util.Optional.of(product1));
+
+		mockMvc.perform(MockMvcRequestBuilders
+				.get("/products/1")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$", notNullValue()))
+				.andExpect(jsonPath("$.name", is("sampo goreng")));
+	}
+
+	@Test
 	public void createRecord_success() throws Exception{
 		Product product = Product.builder()
 				.name("sampo tumis")
