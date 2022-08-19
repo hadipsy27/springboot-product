@@ -21,8 +21,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Optional<Product> getProductById(Long id) {
-        return productRepository.findById(id);
+    public Product getProductById(Long id) {
+        return productRepository.findById(id).orElseThrow(() -> {
+            throw new Error("Product not found");
+        });
     }
 
     @Override
@@ -31,8 +33,18 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Optional<Product> deleteProductById(Long id) {
-        Optional<Product> product = this.getProductById(id);
+    public Product updateProduct(Long id, Product product) {
+        Product productById = this.getProductById(id);
+//        productById.setId(product.getId());
+        productById.setName(product.getName());
+        productById.setPrice(product.getPrice());
+        product.setName(product.getName());
+        return productRepository.save(productById);
+    }
+
+    @Override
+    public Product deleteProductById(Long id) {
+        Product product = this.getProductById(id);
         productRepository.deleteById(id);
         return product;
     }

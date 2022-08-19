@@ -54,7 +54,7 @@ public class ProductControllerTest {
 
 	@Test
 	public void getProductById_success() throws Exception{
-		Mockito.when(productService.getProductById(product1.getId())).thenReturn(java.util.Optional.of(product1));
+		Mockito.when(productService.getProductById(product1.getId())).thenReturn(product1);
 
 		mockMvc.perform(MockMvcRequestBuilders
 				.get("/products/1")
@@ -86,7 +86,7 @@ public class ProductControllerTest {
 
 	@Test
 	public void deleteProductById_success() throws Exception{
-		Mockito.when(productService.deleteProductById(product2.getId())).thenReturn(Optional.of(product2));
+		Mockito.when(productService.deleteProductById(product2.getId())).thenReturn(product2);
 
 		mockMvc.perform(MockMvcRequestBuilders.delete("/products/2").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}

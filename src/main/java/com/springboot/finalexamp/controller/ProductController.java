@@ -22,7 +22,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Product> getById(@PathVariable("id") Long id){
+    public Product getById(@PathVariable("id") Long id){
         return productService.getProductById(id);
     }
 
@@ -31,8 +31,14 @@ public class ProductController {
         return productService.addProduct(product);
     }
 
+    @PutMapping("/{id}")
+    public Product update(@PathVariable("id") Long id, @RequestBody Product product){
+        Product productById = productService.getProductById(id);
+        return productService.updateProduct(productById.getId(), product);
+    }
+
     @DeleteMapping("/{id}")
-    public Optional<Product> delete(@PathVariable("id") Long id){
+    public Product delete(@PathVariable("id") Long id){
         return productService.deleteProductById(id);
     }
 }
