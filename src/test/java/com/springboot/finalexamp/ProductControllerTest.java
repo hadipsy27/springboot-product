@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import java.util.Optional;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.*;
 
@@ -82,6 +82,13 @@ public class ProductControllerTest {
 				.andExpect(status().isOk())
 				.andExpect(jsonPath("$", notNullValue()))
 				.andExpect(jsonPath("$.name", is("sampo tumis")));
+	}
+
+	@Test
+	public void deleteProductById_success() throws Exception{
+		Mockito.when(productService.deleteProductById(product2.getId())).thenReturn(Optional.of(product2));
+
+		mockMvc.perform(MockMvcRequestBuilders.delete("/products/2").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
 
 }
