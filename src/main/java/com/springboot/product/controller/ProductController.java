@@ -1,8 +1,8 @@
-package com.springboot.finalexamp.controller;
+package com.springboot.product.controller;
 
 
-import com.springboot.finalexamp.entity.Product;
-import com.springboot.finalexamp.service.ProductService;
+import com.springboot.product.entity.Product;
+import com.springboot.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

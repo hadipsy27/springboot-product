@@ -1,9 +1,9 @@
-package com.springboot.finalexamp;
+package com.springboot.product;
 
 
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FinalExampApplicationTests {
+class ProductApplicationTests {
 
 }

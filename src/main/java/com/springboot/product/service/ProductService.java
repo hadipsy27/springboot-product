@@ -1,9 +1,8 @@
-package com.springboot.finalexamp.service;
+package com.springboot.product.service;
 
-import com.springboot.finalexamp.entity.Product;
+import com.springboot.product.entity.Product;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ProductService {
 

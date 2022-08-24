@@ -1,6 +1,6 @@
-package com.springboot.finalexamp.repository;
+package com.springboot.product.repository;
 
-import com.springboot.finalexamp.entity.Product;
+import com.springboot.product.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

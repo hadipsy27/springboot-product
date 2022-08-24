@@ -1,13 +1,12 @@
-package com.springboot.finalexamp.service.impl;
+package com.springboot.product.service.impl;
 
-import com.springboot.finalexamp.entity.Product;
-import com.springboot.finalexamp.repository.ProductRepository;
-import com.springboot.finalexamp.service.ProductService;
+import com.springboot.product.entity.Product;
+import com.springboot.product.repository.ProductRepository;
+import com.springboot.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {

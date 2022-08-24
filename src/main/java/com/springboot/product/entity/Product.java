@@ -1,4 +1,4 @@
-package com.springboot.finalexamp.entity;
+package com.springboot.product.entity;
 
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
